@@ -2,6 +2,7 @@ import { useQuery } from "@apollo/client";
 import { GET_CHARACTERS } from "@/graphql/queries";
 import type { GetCharactersQueryResponse, GetCharactersQueryVariables } from "@/types/graphql";
 import CharacterGrid from "../character/CharacterGrid";
+import CharacterGridSkeleton from "../character/CharacterGridSkeleton";
 
 export default function AllCharactersView() {
   const { data, loading, error } = useQuery<
@@ -12,11 +13,7 @@ export default function AllCharactersView() {
   });
 
   if (loading) {
-    return (
-       <div className="py-20 text-center text-muted-foreground">
-         Loading...
-       </div>
-    );
+    return <CharacterGridSkeleton />;
   }
 
   if (error) {

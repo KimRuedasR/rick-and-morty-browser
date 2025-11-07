@@ -4,7 +4,7 @@ import type { GetCharactersQueryResponse, GetCharactersQueryVariables } from "@/
 import CharacterGrid from "../character/CharacterGrid";
 import CharacterGridSkeleton from "../character/CharacterGridSkeleton";
 
-export default function AllCharactersView() {
+export default function CharactersView() {
   const { data, loading, error } = useQuery<
     GetCharactersQueryResponse,
     GetCharactersQueryVariables
@@ -18,8 +18,8 @@ export default function AllCharactersView() {
 
   if (error) {
     return (
-      <div className="rounded-lg border border-red-200 bg-red-50 p-8 text-center text-red-800">
-        <p>Error: {error.message}</p>
+      <div className="rounded-lg border border-destructive/50 bg-destructive/10 p-8 text-center text-destructive">
+        <p>Error loading characters: {error.message}</p>
       </div>
     );
   }

@@ -12,13 +12,13 @@ Developed with Vite, React, TailwindCSS using the **Rick and Morty GraphQL API:*
 
 | Technology | Version |
 |-----------|---------|
-| React | 19.x |
-| TypeScript | 5.x |
-| Vite | 7.x |
-| Tailwind CSS | 4.x |
+| React | 19.1 |
+| TypeScript | 5.8 |
+| Vite | 7.1 |
+| Tailwind CSS | 4.1 |
 | shadcn/ui | v4 |
-| Apollo Client | ^3.14.0 |
-| Zustand | ^5.0.0 |
+| Apollo Client | 3.14 |
+| Zustand | 5.0 |
 
 
 ## 📦 Setup and Installation

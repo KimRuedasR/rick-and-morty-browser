@@ -67,7 +67,6 @@ export default function CharactersView() {
       {loading ? (
         <CharacterGridSkeleton />
       ) : data?.characters.results && data.characters.results.length > 0 ? (
-        // Success state
         <>
           <CharacterGrid characters={data.characters.results} />
           <Pagination
@@ -77,7 +76,6 @@ export default function CharactersView() {
           />
         </>
       ) : (
-        // Empty state
         <NoResults searchTerm={debouncedSearchTerm} />
       )}
     </section>

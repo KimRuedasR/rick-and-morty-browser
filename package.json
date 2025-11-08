@@ -1,7 +1,7 @@
 {
   "name": "rick-and-morty-browser",
   "private": true,
-  "version": "0.4.0",
+  "version": "1.0.0",
   "description": "A Rick and Morty API character browser built with React, Vite, and Tailwind CSS.",
   "author": {
     "name": "Kim Ruedas",

@@ -18,3 +18,11 @@ export interface GetCharactersQueryVariables {
   page?: number;
   name?: string;
 }
+
+export interface GetCharactersByIdQueryResponse {
+  charactersByIds: Character[];
+}
+
+export interface GetCharactersByIdQueryVariables {
+  id: string[];
+}

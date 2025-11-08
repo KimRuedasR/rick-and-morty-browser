@@ -19,7 +19,7 @@ Developed with Vite, React, TailwindCSS using the **Rick and Morty GraphQL API:*
 
 ## 🔗 Live Demo
 
-🌐 **[View Live Demo](#)**
+**[🌐 View Live Application ](https://rick-and-morty-browser.vercel.app/)**
 
 ## 🛠️ Tech Stack
 
@@ -102,8 +102,8 @@ Performance metrics measured on production build:
 
 | Metric | Result |
 |--------|--------|
-| **Performance** | _00_ 🟢 |
-| **Accessibility** | _095_ 🟢 (Contrast)| 
+| **Performance** | _99._ 🟢 |
+| **Accessibility** | _95._ 🟢 | 
 | **Best Practices** | _100_ 🟢 |
 | **SEO** | _100_ 🟢 |
 

@@ -8,9 +8,10 @@ import { cn } from "@/lib/utils";
 
 interface CharacterCardProps {
   character: Character;
+  isPriority?: boolean;
 }
 
-export default function CharacterCard({ character }: CharacterCardProps) {
+export default function CharacterCard({ character, isPriority = false }: CharacterCardProps) {
   // Get favorite state and toggle function
   const isFavorited = useFavoritesStore((state) => state.isFavorited(character.id));
   const toggleFavorite = useFavoritesStore((state) => state.toggleFavorite);
@@ -18,12 +19,15 @@ export default function CharacterCard({ character }: CharacterCardProps) {
   return (
     <Card className="w-full overflow-hidden shadow-md border-0 rounded-[14px] p-0 gap-0">
       <div className="relative aspect-square w-full overflow-hidden bg-gray-100">
+        {/* Picture */}
         <img
           src={character.image}
           alt={character.name}
           className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-          loading="lazy"
+          loading={isPriority ? "eager" : "lazy"}
+          fetchPriority={isPriority ? "high" : "auto"}
         />
+        {/* Favorite button */}
         <Button
           variant="ghost"
           size="icon"
@@ -41,16 +45,19 @@ export default function CharacterCard({ character }: CharacterCardProps) {
       </div>
        <CardContent className="flex flex-col gap-3 p-4">
         <div className="flex flex-col gap-2">
-          <h3
+          {/* Name */}
+          <h2
             className="line-clamp-1 text-xl font-bold text-[#0A0A0A]"
             title={character.name}
           >
             {character.name}
-          </h3>
+          </h2>
+          {/* Status */}
           <div className="flex">
             <StatusBadge status={character.status} />
           </div>
         </div>
+        {/* Species */}
         <p className="text-sm text-[#6A7282] line-clamp-1">
           {character.species}
         </p>

@@ -23,9 +23,9 @@ export default function FavoritesView() {
     return (
       <div className="w-full max-w-[1248px] h-[300px] mx-auto flex flex-col items-center justify-center text-center">
         <Heart className="w-16 h-16 text-gray-400 mb-4" strokeWidth={1.5} />
-        <h2 className="text-xl font-normal text-[#0A0A0A] mb-4">
+        <h3 className="text-xl font-normal text-[#0A0A0A] mb-4">
           No favorites yet
-        </h2>
+        </h3>
         <p className="text-base font-normal text-[#717182]">
           Start adding characters to your favorites!
         </p>

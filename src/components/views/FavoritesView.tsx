@@ -19,17 +19,14 @@ export default function FavoritesView() {
     skip: favoriteId.length === 0,
   });
 
-  // Debug
-  console.log("Favorites Debug:", { favoriteId, data, loading, error: error?.message });
-
   if (favoriteId.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center py-20 text-center">
-        <div className="rounded-full bg-gray-100 p-6 mb-4">
-           <Heart className="h-10 w-10 text-gray-400" strokeWidth={1.5} />
-        </div>
-        <h2 className="text-2xl font-bold text-[#0A0A0A]">No favorites yet</h2>
-        <p className="text-gray-600 mt-2 max-w-md">
+      <div className="w-full max-w-[1248px] h-[300px] mx-auto flex flex-col items-center justify-center text-center">
+        <Heart className="w-16 h-16 text-gray-400 mb-4" strokeWidth={1.5} />
+        <h2 className="text-xl font-normal text-[#0A0A0A] mb-4">
+          No favorites yet
+        </h2>
+        <p className="text-base font-normal text-[#717182]">
           Start adding characters to your favorites!
         </p>
       </div>

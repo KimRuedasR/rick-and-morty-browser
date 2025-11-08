@@ -1,69 +1,137 @@
-# React + TypeScript + Vite
+# 🚀 Rick and Morty Character Browser
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+Responsive web app for browsing Rick and Morty characters, featuring search, pagination, and a favorites system.
+Developed with Vite, React, TailwindCSS using the **Rick and Morty GraphQL API:** `https://rickandmortyapi.com/graphql`.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> 🎵 "It's time to get schwifty! 👽" 🎵
 
-## Expanding the ESLint configuration
+## ✅ Core Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Responsive Grid Layout** - Adapts from 1 column (mobile) to 3 columns (desktop)
+- **Real-time Search** - Debounced search (300ms) and "no results" state
+- **Smart Pagination** - Previous/Next navigation that maintains search queries
+- **Favorites System** - Toggle favorites with localStorage persistence via Zustand
+- **Favorites View** - Dedicated tab to browse favorited characters with counter
+- **Loading Skeletons** - Smooth loading states for better UX
+- **Status Badges** - Color-coded indicators for character status
+- **Error Handling** - User-friendly error messages for API failures
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🔗 Live Demo
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+🌐 **[View Live Demo](#)**
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🛠️ Tech Stack
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+| Technology | Version |
+|-----------|---------|
+| React | 19.1 |
+| TypeScript | 5.8 |
+| Vite | 7.1 |
+| Tailwind CSS | 4.1 |
+| shadcn/ui | v4 |
+| Apollo Client | 3.14 |
+| Zustand | 5.0 |
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📦 Setup and Installation
+
+To run this project locally:
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/KimRuedasR/rick-and-morty-browser
+    ```
+
+2.  **Navigate to the project directory:**
+    ```bash
+    cd rick-and-morty-browser
+    ```
+
+3.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+4.  **Set up environment variables:**
+    ```bash
+    # Create .env file in root directory with:
+    VITE_GRAPHQL_ENDPOINT=https://rickandmortyapi.com/graphql
+    ```
+
+5.  **Run the development server:**
+    ```bash
+    npm run dev
+    # Or to expose on network:
+    npm run host
+    ```
+    The application will be available at `http://localhost:5173`.
+
+## 📝 Technology Decisions
+
+### Views vs Pagination
+A simple view toggle replaces complex routing for switching between all characters and favorites. This keeps the app lightweight while providing clear navigation between the two contexts.
+
+### Environment Variable
+The GraphQL endpoint is configured via environment variable following best practices, with the value loaded in `index.html` to ensure it's available before the app initializes.
+
+### Performance Optimizations
+- **Debounced Search** - Reduces API calls while typing
+- **Code Splitting** - Vite's automatic bundling for faster loads
+- **Optimized Images** - API provides pre-optimized character images
+- **Loading Skeletons** - Immediate visual feedback during fetches
+
+### Type Safety
+Full TypeScript coverage across API responses, component props, and state management to catch errors early and improve developer experience.
+
+## ⏱️ Time Spent
+
+**Breakdown:**
+- Initial setup and configuration: _30 minutes_
+- UI components and layout: _30 minutes_
+- GraphQL integration and data fetching: _1 hour_
+- Searching and Pagination: _1 hour_
+- Favorites system implementation: _1 hour_
+- Final styling, responsive design and fixes: _1 hour_
+
+_**Total Time:** Around 5 hours_
+
+## 📊 Lighthouse Metrics
+
+Performance metrics measured on production build:
+
+| Metric | Result |
+|--------|--------|
+| **Performance** | _00_ 🟢 |
+| **Accessibility** | _095_ 🟢 (Contrast)| 
+| **Best Practices** | _100_ 🟢 |
+| **SEO** | _100_ 🟢 |
+
+**Key Optimizations:**
+- Lazy loading for improved initial load time
+- Optimized images from API
+- Minimal JavaScript bundle size
+- Accessible semantic HTML structure
+- Responsive meta tags for mobile devices
+
+## 📸 Screenshots
+
+### Desktop Views
+<p align="center">
+  <img src="./public/screenshots/desktop-all-characters.png" alt="Desktop - All Characters" width="19%" />
+  <img src="./public/screenshots/desktop-favorites.png" alt="Desktop - Favorites" width="19%" />
+  <img src="./public/screenshots/desktop-search.png" alt="Desktop - Search" width="19%" />
+  <img src="./public/screenshots/desktop-empty-favorites.png" alt="Desktop - Empty Favorites" width="19%" />
+  <img src="./public/screenshots/desktop-not-found.png" alt="Desktop - Not Found" width="19%" />
+</p>
+
+### Mobile Views
+<p align="center">
+  <img src="./public/screenshots/mobile-all-characters.png" alt="Mobile - All Characters" width="19%" />
+  <img src="./public/screenshots/mobile-favorites.png" alt="Mobile - Favorites" width="19%" />
+  <img src="./public/screenshots/mobile-search.png" alt="Mobile - Search" width="19%" />
+  <img src="./public/screenshots/mobile-empty-favorites.png" alt="Mobile - Empty Favorites" width="19%" />
+  <img src="./public/screenshots/mobile-not-found.png" alt="Mobile - Not Found" width="19%" />
+</p>
+
+---

@@ -4,7 +4,7 @@
 Responsive web app for browsing Rick and Morty characters, featuring search, pagination, and a favorites system.
 Developed with Vite, React, TailwindCSS using the **Rick and Morty GraphQL API:** `https://rickandmortyapi.com/graphql`.
 
-> 🎵 "It's time to get schwifty! 👽" 🎵
+> 🎵 It's time to get schwifty! 👽 🎵
 
 ## ✅ Core Features
 
@@ -19,7 +19,7 @@ Developed with Vite, React, TailwindCSS using the **Rick and Morty GraphQL API:*
 
 ## 🔗 Live Demo
 
-**[🌐 View Live Application ](https://rick-and-morty-browser.vercel.app/)**
+**[🌐 https://rick-and-morty-browser.vercel.app/](https://rick-and-morty-browser.vercel.app/)**
 
 ## 🛠️ Tech Stack
 
@@ -101,15 +101,17 @@ _**Total Time:** Around 5 hours_
 Performance metrics measured on production build:
 
 | Metric | Result |
-|--------|--------|
-| **Performance** | _99._ 🟢 |
-| **Accessibility** | _95._ 🟢 | 
+|:---|---:|
+| **Performance** | _99_ 🟢 |
+| **Accessibility** | _95_ 🟢 | 
 | **Best Practices** | _100_ 🟢 |
 | **SEO** | _100_ 🟢 |
 
+_Reported score from the production build._
+Image loading is dependent on the external API while the accessibility score is influenced by design constraints.
+
 **Key Optimizations:**
 - Lazy loading for improved initial load time
-- Optimized images from API
 - Minimal JavaScript bundle size
 - Accessible semantic HTML structure
 - Responsive meta tags for mobile devices

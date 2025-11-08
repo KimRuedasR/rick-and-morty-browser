@@ -13,26 +13,33 @@ export default function Pagination({
 }: PaginationProps) {
   const { pages: totalPages, next, prev } = info;
 
+  const canGoPrev = prev !== null;
+  const canGoNext = next !== null;
+
   if (totalPages <= 1) {
     return null;
   }
 
   return (
-    <nav aria-label="Pagination" className="flex items-center justify-between p-4">
+    <nav
+      className="flex items-center justify-center gap-4 mt-8" aria-label="Pagination"
+    >
       <button
+        className="h-10 rounded-[10px] border border-black/10 px-4 py-2 inline-flex items-center disabled:opacity-50 text-base text-[#0A0A0A]"
         onClick={() => onPageChange(currentPage - 1)}
-        disabled={prev === null}
-        className="disabled:opacity-50"
+        disabled={!canGoPrev}
       >
-        Previous
+        Prev
       </button>
-      <span>
-        Page {currentPage} of {totalPages}
+
+      <span className="text-base font-medium text-[#0A0A0A]">
+        Page {currentPage}
       </span>
+
       <button
+        className="h-10 rounded-[10px] border border-black/10 px-4 py-2 inline-flex items-center disabled:opacity-50 text-base text-[#0A0A0A]"
         onClick={() => onPageChange(currentPage + 1)}
-        disabled={next === null}
-        className="disabled:opacity-50"
+        disabled={!canGoNext}
       >
         Next
       </button>

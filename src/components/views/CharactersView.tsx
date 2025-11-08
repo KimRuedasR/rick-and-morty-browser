@@ -19,20 +19,19 @@ export default function CharactersView() {
     setPage(1);
   }, [debouncedSearchTerm]);
 
-  // Scroll to top on page
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [page]);
-
   const { data, loading, error } = useQuery<
     GetCharactersQueryResponse,
     GetCharactersQueryVariables
   >(GET_CHARACTERS, {
     variables: { page, name: debouncedSearchTerm },
-    onCompleted: () => {
-      window.scrollTo(0, 0);
-    },
   });
+
+  // Scroll to top when data is loaded
+  useEffect(() => {
+    if (data) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [data]);
 
   if (error) {
     // API returns 404

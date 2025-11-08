@@ -19,3 +19,15 @@ export const GET_CHARACTERS = gql`
     }
   }
 `;
+
+export const GET_CHARACTERS_BY_ID = gql`
+  query GetCharactersById($id: [ID!]!) {
+    charactersByIds(ids: $id) {
+      id
+      name
+      status
+      species
+      image
+    }
+  }
+`;

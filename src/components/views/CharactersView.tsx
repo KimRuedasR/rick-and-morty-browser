@@ -14,12 +14,12 @@ export default function CharactersView() {
   const [page, setPage] = useState(1);
   const debouncedSearchTerm = useDebounce(searchTerm, 300);
 
-  // CRITICAL: Reset page to 1 when search term changes
+  // Reset page to 1
   useEffect(() => {
     setPage(1);
   }, [debouncedSearchTerm]);
 
-  // Scroll to top on page change for better UX
+  // Scroll to top on page
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [page]);
@@ -29,15 +29,13 @@ export default function CharactersView() {
     GetCharactersQueryVariables
   >(GET_CHARACTERS, {
     variables: { page, name: debouncedSearchTerm },
-    // This also helps with UX on page/search changes
     onCompleted: () => {
       window.scrollTo(0, 0);
     },
   });
 
-  // Handle API error state
   if (error) {
-    // API returns 404 when search yields no results. Treat this as an empty state.
+    // API returns 404
     if (error.message.includes("404")) {
       return (
         <section className="space-y-8">
@@ -50,7 +48,7 @@ export default function CharactersView() {
         </section>
       );
     }
-    // Handle actual GraphQL/network errors
+
     return (
       <div className="py-20 text-center text-destructive">
         <p>An error occurred: {error.message}</p>
@@ -69,7 +67,7 @@ export default function CharactersView() {
       {loading ? (
         <CharacterGridSkeleton />
       ) : data?.characters.results && data.characters.results.length > 0 ? (
-        // Success state: Show grid and pagination
+        // Success state
         <>
           <CharacterGrid characters={data.characters.results} />
           <Pagination
@@ -79,7 +77,7 @@ export default function CharactersView() {
           />
         </>
       ) : (
-        // Empty state (search returned no results)
+        // Empty state
         <NoResults searchTerm={debouncedSearchTerm} />
       )}
     </section>
